@@ -1,0 +1,15 @@
+<p-card [style]="{ width: '20rem', overflow: 'hidden'}" styleClass="card">
+    <ng-template #header>
+        <img alt="Card" class="w-full"  [src]="product().images[0]" />
+    </ng-template>
+    <ng-template #title><h3>{{ product().title }}</h3>  </ng-template>
+     <p>{{ product().description.slice(0,50) }}...</p> 
+    <p>Price: ${{ product().price }}</p>
+
+    <ng-template #footer>
+        <div class="flex gap-4 mt-1">
+           <button>
+          Add to card
+        </button>
+        </div>
+    </ng-template>
