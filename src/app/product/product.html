@@ -1,15 +1,22 @@
-<p-card [style]="{ width: '20rem', overflow: 'hidden'}" styleClass="card">
-    <ng-template #header>
-        <img alt="Card" class="w-full"  [src]="product().images[0]" />
-    </ng-template>
-    <ng-template #title><h3>{{ product().title }}</h3>  </ng-template>
-     <p>{{ product().description.slice(0,50) }}...</p> 
-    <p>Price: ${{ product().price }}</p>
+<div  class="card h-100 border-0" style="overflow: hidden;">
+  <div class="im-wrapper">  <img [src]="product().images[0]" class="card-img-top h-100 bg-light rounded" alt="Product image">
+</div>
 
-    <ng-template #footer>
-        <div class="flex gap-4 mt-1">
-           <button>
-          Add to card
-        </button>
-        </div>
-    </ng-template>
+  <div class="card-body ps-0 h-100 d-flex flex-column justify-content-between align-items-start">
+    <h5 class="card-title">{{ product().title }}</h5>
+    <p class="card-text">{{ product().description.slice(0, 50) }}...</p>
+    <p class="card-text fw-bold">Price: ${{ product().price }}</p>
+
+    <button
+      (click)="toggleCart()"
+      [ngClass]="{
+      'btn': true,
+      'btn-success': !inCart(),
+      'btn-danger': inCart()
+    }"
+    >
+      {{ inCart() ? 'Remove from cart' : 'Add to cart' }}
+    </button>
+  </div>
+</div>
+
