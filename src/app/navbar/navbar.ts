@@ -1,4 +1,4 @@
-import { Component, OnInit , inject} from '@angular/core';
+import { Component , inject} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
