@@ -14,7 +14,9 @@ export class Product {
 
   toggle = output();
 
-  toggleCart() {
+  toggleCart(event: Event) {
+    event.preventDefault(); 
+    event.stopPropagation();
     this.toggle.emit(this.product());
   }
 }

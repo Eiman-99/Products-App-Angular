@@ -3,18 +3,19 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { ProductService } from '../products-service';
 import { CartService } from '../cart-service';
 import { Product } from '../product/product';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [Product],
+  imports: [Product, RouterModule],
   templateUrl: './products.html',
   styleUrl: './products.scss'
 })
 export class Products implements OnInit {
   products = signal<any[]>([]);
   private productService = inject(ProductService);
-  protected cartService = inject(CartService); // protected to use in template
+  protected cartService = inject(CartService);
 
   ngOnInit() {
     this.productService.getProducts().subscribe({

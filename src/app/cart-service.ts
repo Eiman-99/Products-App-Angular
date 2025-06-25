@@ -30,7 +30,7 @@ export class CartService {
   decrementQuantity(productId: number) {
     const updatedItems = this.cartItemsSignal().map(p =>
       p.id === productId ? { ...p, quantity: p.quantity - 1 } : p
-    ).filter(p => p.quantity > 0); // remove if quantity becomes 0
+    ).filter(p => p.quantity > 0); 
     this.cartItemsSignal.set(updatedItems);
   }
 
