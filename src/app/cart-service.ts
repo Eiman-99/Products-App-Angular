@@ -4,9 +4,6 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  remove(id: number) {
-    throw new Error('Method not implemented.');
-  }
   private cartItemsSignal = signal<any[]>([]);
 
   getCartItems = this.cartItemsSignal.asReadonly();

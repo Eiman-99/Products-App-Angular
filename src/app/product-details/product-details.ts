@@ -15,7 +15,6 @@ export class ProductDetails {
   private cartService = inject(CartService);
 
   product: any = null;
-  selectedImage = signal('');
   readonly cartItems = this.cartService.getCartItems;
 
   quantity = computed(() => {
@@ -27,7 +26,6 @@ export class ProductDetails {
     const id = this.route.snapshot.paramMap.get('id');
     this.http.get(`https://dummyjson.com/products/${id}`).subscribe((res: any) => {
       this.product = res;
-      this.selectedImage.set(res.images?.[0] || '');
     });
   }
 
